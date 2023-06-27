@@ -21,6 +21,11 @@ typedef struct{
 void registro_de_productos(HashMap *mapaProducto){
   char *nombre;
   int precioCompra, precioVenta, stockInicial, cantVendida;
+  printf("Ingrese el nombre del producto,precio de compra,precio de venta y stock. Separado por comas\n");
+  scanf("%m[^,],%d,%d,%d", &nombre, &precioCompra, &precioVenta, &stockInicial);
+  tipoProducto *productoAux = malloc(sizeof(tipoProducto));
+  productoAux->nombre = strdup(nombre);
+  productoAux->precioCompra = precioCompra;
 }
 
 int main() {
