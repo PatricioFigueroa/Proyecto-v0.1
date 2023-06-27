@@ -85,6 +85,34 @@ void modificar_datos_de_un_producto(HashMap *mapaProducto)
     }
 }
 
+void Cargar_csv_de_stock(HashMap *mapaProducto, char *nombre_archivo){
+  char caracter[100], *nombre;
+  FILE *archivoCsv = fopen(nombre_archivo, "r");
+  int precioCompra, precioVenta, stockInicial, cantVendida,opcion;
+  
+  if (archivoCsv == NULL) 
+  {
+    printf("\n——————————————————————————————————————————————————————————————————————————\n");
+    printf("El archivo %s no existe en el directorio actual o esta mal escrito.\n", nombre_archivo);
+    printf("——————————————————————————————————————————————————————————————————————————\n\n");
+    return;
+  }
+
+  fgets(caracter, 99, archivoCsv);
+
+  while (fscanf(archivoCsv, "%m[^,],%d,%d,%d\n", &nombre, &precioCompra, &precioVenta, &stockInicial) != EOF) {
+    tipoProducto *producto = malloc(sizeof(tipoProducto));
+    producto->nombre = strdup(nombre);
+    producto->precioCompra = precioCompra;
+    producto->precioVenta = precioVenta;
+    producto->stockInicial = stockInicial;
+    producto->cantVendida = 0;
+    insertMap(mapaProducto, producto->nombre, producto);
+  }
+  printf("\nArchivo importado.\n");
+  fclose(archivoCsv);
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
