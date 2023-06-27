@@ -18,7 +18,7 @@ typedef struct{
   int gastoDia;
 }tipoDia;
 
-void registro_de_productos(HashMap *mapaProducto){
+void registro_de_productos(HashMap *mapaProducto, HashMap *mapaSemanal){
   char *nombre;
   int precioCompra, precioVenta, stockInicial, cantVendida;
   printf("Ingrese el nombre del producto,precio de compra,precio de venta y stock. Separado por comas\n");
@@ -30,6 +30,8 @@ void registro_de_productos(HashMap *mapaProducto){
   productoAux->stockInicial = stockInicial;
   productoAux->cantVendida = 0;
   insertMap(mapaProducto, productoAux->nombre, productoAux);
+    insertMap(mapaSemanal, productoAux->nombre, productoAux);
+
 }
 
 void Control_de_stock(HashMap *mapaProducto)
@@ -143,6 +145,11 @@ void mostrarMapa(HashMap *mapaProducto) {
     }
 }
 
+void finalizarDia(HashMap *mapaProducto, List * listaDias)
+{
+  
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
@@ -179,13 +186,13 @@ int main() {
   switch (opcion) 
     {
       case 1:
-        registro_de_productos(mapaProducto);
+        registro_de_productos(mapaProducto,mapaSemanal);
         break;
       case 2:
-        Control_de_stock(mapaProducto);
+        Control_de_stock(mapaProducto,mapaSemanal);
         break;
       case 3:
-        modificar_datos_de_un_producto(mapaProducto);
+        modificar_datos_de_un_producto(mapaProducto,mapaSemanal);
         break;
       case 4: 
         mostrarMapa(mapaProducto);
@@ -201,11 +208,11 @@ int main() {
               printf("————————————————————————————————————————————————————————————\n\n");
           break;
         }
-        Cargar_csv_de_stock(mapaProducto, archivoCargado);
+        Cargar_csv_de_stock(mapaProducto,mapaSemanal, archivoCargado);
       printf("————————————————————————————————————————————————————————————\n\n");
         break;
       case 6:
-        finalizarDia(mapaProducto,listaDias);
+        finalizarDia(mapaProducto,mapaSemanal,listaDias);
         contadorDia++;
         break;
       default:
