@@ -46,7 +46,12 @@ void Control_de_stock(HashMap *mapaProducto)
     return;
   }
   tipoProducto * productoAux = buscado->value;
-  
+  if(productoAux->cantVendida + cantVendida > productoAux->stockInicial || cantVendida <= 0)
+  {
+    puts("No se puede.");
+    return; 
+  }
+  productoAux->cantVendida=productoAux->cantVendida+cantVendida;
 }
 
 void modificar_datos_de_un_producto(HashMap *mapaProducto)
