@@ -26,6 +26,10 @@ void registro_de_productos(HashMap *mapaProducto){
   tipoProducto *productoAux = malloc(sizeof(tipoProducto));
   productoAux->nombre = strdup(nombre);
   productoAux->precioCompra = precioCompra;
+  productoAux->precioVenta = precioVenta;
+  productoAux->stockInicial = stockInicial;
+  productoAux->cantVendida = 0;
+  insertMap(mapaProducto, productoAux->nombre, productoAux);
 }
 
 int main() {
