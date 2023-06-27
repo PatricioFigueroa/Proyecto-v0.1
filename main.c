@@ -41,6 +41,50 @@ void Control_de_stock(HashMap *mapaProducto)
   scanf("%m[^,],%d",&nombre,&cantVendida);
 }
 
+void modificar_datos_de_un_producto(HashMap *mapaProducto)
+{
+  int opcion, nuevoValor;
+  char nombreProducto[100];
+
+  printf("Ingrese el nombre del producto a modificar\n");
+  scanf("%s", nombreProducto);
+  Pair *buscado = searchMap(mapaProducto, nombreProducto);
+  if(buscado == NULL)
+  {
+    printf("El producto no existe");
+    return;
+  }
+  tipoProducto *producto = buscado->value;
+
+  printf("Seleccione que quiere cambia\n");
+  printf("1. Precio de compra\n");
+  printf("2. Precio de venta\n");
+  printf("3. Stock inicial\n");
+  scanf("%d", &opcion);
+  getchar();
+  switch (opcion) 
+    {
+      case 1:
+        printf("Ingrese el nuevo precio de compra\n");
+        scanf("%d", &nuevoValor);
+        getchar();
+        producto->precioCompra = nuevoValor;
+        break;
+      case 2:
+        printf("Ingrese el nuevo precio de venta\n");
+        scanf("%d", &nuevoValor);
+        producto->precioVenta = nuevoValor;
+        break;
+      case 3:
+        printf("Ingrese el nuevo stock inicial\n");
+        scanf("%d", &nuevoValor);
+        producto->stockInicial = nuevoValor;
+      default:
+        printf("Opcion invalida\n");
+        return;
+    }
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
