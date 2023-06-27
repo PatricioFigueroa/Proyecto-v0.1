@@ -126,6 +126,23 @@ void Cargar_csv_de_stock(HashMap *mapaProducto, char *nombre_archivo){
   fclose(archivoCsv);
 }
 
+void mostrarMapa(HashMap *mapaProducto) {
+    printf("Productos almacenados:\n");
+
+    Pair *pair = firstMap(mapaProducto);
+    while (pair != NULL) {
+        tipoProducto *producto = (tipoProducto *)pair->value;
+        printf("Nombre: %s\n", producto->nombre);
+        printf("Precio de compra: %d\n", producto->precioCompra);
+        printf("Precio de venta: %d\n", producto->precioVenta);
+        printf("Stock inicial: %d\n", producto->stockInicial);
+        printf("Cantidad vendida: %d\n", producto->cantVendida);
+        printf("------------------------\n");
+
+        pair = nextMap(mapaProducto);
+    }
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
