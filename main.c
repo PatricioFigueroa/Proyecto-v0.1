@@ -32,6 +32,15 @@ void registro_de_productos(HashMap *mapaProducto){
   insertMap(mapaProducto, productoAux->nombre, productoAux);
 }
 
+void Control_de_stock(HashMap *mapaProducto)
+{
+  //pensar en poner variables que sumen la ganancia e inversion total 
+  char *nombre;
+  int cantVendida;
+  printf("Ingrese el nombre del producto y las unidades que vendio. Separado por una coma\n");
+  scanf("%m[^,],%d",&nombre,&cantVendida);
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
