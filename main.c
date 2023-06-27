@@ -18,6 +18,11 @@ typedef struct{
   int gastoDia;
 }tipoDia;
 
+void registro_de_productos(HashMap *mapaProducto){
+  char *nombre;
+  int precioCompra, precioVenta, stockInicial, cantVendida;
+}
+
 int main() {
   HashMap *mapaProducto = createMap((long)100);
   HashMap *mapaSemanal = createMap((long)100);
@@ -38,8 +43,8 @@ int main() {
   }
     
   fclose(ArchivoPrueba);
-  system("python test.py");
-  while(true)
+
+   while(true)
   {
   printf("\n--- Menú Principal ---\n");
   printf("1. Registro de productos\n");
@@ -54,7 +59,7 @@ int main() {
   switch (opcion) 
     {
       case 1:
-          registro_de_productos(mapaProducto);
+        registro_de_productos(mapaProducto);
         break;
       case 2:
         Control_de_stock(mapaProducto);
