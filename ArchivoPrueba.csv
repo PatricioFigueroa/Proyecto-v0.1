@@ -1,0 +1,51 @@
+Producto,Precio de Compra,Precio de Venta,Stock
+Arroz,2500,3500,100
+Carnes,8000,12500,50
+Comida enlatada,1800,2500,75
+Leche,1000,1800,120
+Pan,500,1000,200
+Huevos,1200,1800,80
+Queso,3500,5000,60
+Pastitayica,1000,1500,100
+Aceite de oliva,4000,6000,40
+Azúcar,1000,1500,90
+Sal,500,1000,150
+Harina,1200,1800,70
+Mantequilla,2000,3000,55
+Café,3000,4500,65
+Té,2000,3000,75
+Refrescos,1500,2500,100
+Agua embotellada,800,1200,120
+Galletas,1200,1800,80
+Jugo de naranja,1500,2500,70
+Cerveza,2000,3500,50
+Vino,6000,10000,30
+Cigarrillos,4000,6000,40
+Pañales,8000,12500,20
+Champú,3500,5000,45
+Acondicionador,3500,5000,45
+Crema facial,5000,8000,35
+Jabón de manos,1000,1800,80
+Papel higiénico,1200,1800,75
+Toallas de papel,1000,1500,90
+Desodorante,2500,4000,55
+Cepillo de dientes,1000,1800,70
+Pasta de dientes,1500,2500,60
+Limpiador multiusos,2000,3500,50
+Detergente,2500,4000,45
+Suavizante de telas,2000,3500,50
+Cuchillas de afeitar,3500,5000,40
+Papel aluminio,1000,1500,80
+Bolsas de basura,1200,1800,75
+Esponjas de cocina,500,1000,150
+Pilas AA,1500,2500,70
+Pilas AAA,1500,2500,70
+Lámparas LED,4000,6000,30
+Bombillas,1000,1500,100
+Destornillador,2500,4000,50
+Martillo,3000,4500,40
+Cinta adhesiva,800,1200,120
+Tijeras,1000,1500,90
+Lápices,500,1000,200
+Cuadernos,1200,1800,80
+Bolígrafos,500,1000,200
