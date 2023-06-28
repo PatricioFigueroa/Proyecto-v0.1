@@ -30,11 +30,11 @@ void registro_de_productos(HashMap *mapaProducto, HashMap *mapaSemanal){
   productoAux->stockInicial = stockInicial;
   productoAux->cantVendida = 0;
   insertMap(mapaProducto, productoAux->nombre, productoAux);
-    insertMap(mapaSemanal, productoAux->nombre, productoAux);
+  insertMap(mapaSemanal, productoAux->nombre, productoAux);
 
 }
 
-void Control_de_stock(HashMap *mapaProducto)
+void Control_de_stock(HashMap *mapaProducto, HashMap *mapaSemanal)
 {
   //pensar en poner variables que sumen la ganancia e inversion total 
   char *nombre;
@@ -48,15 +48,17 @@ void Control_de_stock(HashMap *mapaProducto)
     return;
   }
   tipoProducto * productoAux = buscado->value;
+  tipoProducto * productoEnSemanal = searchMap(mapaSemanal, nombre)->value;
   if(productoAux->cantVendida + cantVendida > productoAux->stockInicial || cantVendida <= 0)
   {
     puts("No se puede.");
     return; 
   }
   productoAux->cantVendida=productoAux->cantVendida+cantVendida;
+  productoEnSemanal->cantVendida = productoEnSemanal->cantVendida + cantVendida;
 }
 
-void modificar_datos_de_un_producto(HashMap *mapaProducto)
+void modificar_datos_de_un_producto(HashMap *mapaProducto, HashMap *mapaSemanal)
 {
   int opcion, nuevoValor;
   char nombreProducto[100];
@@ -100,7 +102,7 @@ void modificar_datos_de_un_producto(HashMap *mapaProducto)
     }
 }
 
-void Cargar_csv_de_stock(HashMap *mapaProducto, char *nombre_archivo){
+void Cargar_csv_de_stock(HashMap *mapaProducto, HashMap *mapaSemanal, char *nombre_archivo){
   char caracter[100], *nombre;
   FILE *archivoCsv = fopen(nombre_archivo, "r");
   int precioCompra, precioVenta, stockInicial, cantVendida,opcion;
@@ -145,7 +147,7 @@ void mostrarMapa(HashMap *mapaProducto) {
     }
 }
 
-void finalizarDia(HashMap *mapaProducto, List * listaDias)
+void finalizarDia(HashMap *mapaProducto, HashMap *mapaSemanal, List * listaDias)
 {
   
 }
